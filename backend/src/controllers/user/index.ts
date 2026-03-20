@@ -29,7 +29,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
 				]);
 				const user = result.rows[0];
 				if (!user) {
-					res.status(409).json({ error: 'A user with this name exists, but could not be retrieved.' });
+					res.status(409).json({ message: 'A user with this name exists, but could not be retrieved.' });
 					return;
 				}
 
@@ -39,7 +39,7 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
 				const wallet = walletRes.rows[0];
 
 				if (!wallet) {
-					res.status(500).json({ error: 'User profile found, but wallet is missing.' });
+					res.status(500).json({ message: 'User profile found, but wallet is missing.' });
 					return;
 				}
 
@@ -60,7 +60,6 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
 			}
 		}
 
-		console.error('Error creating user:', error);
 		res.status(500).json({ message: 'Internal server error' });
 	}
 };

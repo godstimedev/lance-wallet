@@ -1,0 +1,102 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+@import '@fontsource-variable/geist';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--radius: 0.5rem;
+	--background: oklch(0.157 0.015 189.571);
+	--foreground: oklch(0.993 0.001 191.228);
+	--muted: oklch(0.234 0.013 323.383);
+	--muted-foreground: oklch(0.767 0.021 323.257);
+	--popover: oklch(0.157 0.015 189.571);
+	--popover-foreground: oklch(0.993 0.001 191.228);
+	--card: oklch(0.157 0.015 189.571);
+	--card-foreground: oklch(0.993 0.001 191.228);
+	--border: oklch(0.271 0.002 191.069);
+	--input: oklch(0.271 0.002 191.069);
+	--primary: oklch(0.274 0.019 189.723);
+	--primary-foreground: oklch(0.817 0.027 190.512);
+	--secondary: oklch(0.252 0.031 323.666);
+	--secondary-foreground: oklch(0.785 0.043 323.384);
+	--accent: oklch(0.28 0.022 103.357);
+	--accent-foreground: oklch(0.826 0.031 102.81);
+	--destructive: oklch(0.6 0.23 31.052);
+	--destructive-foreground: oklch(1 0 180);
+	--ring: oklch(0.274 0.019 189.723);
+	--chart-1: oklch(0.274 0.019 189.723);
+	--chart-2: oklch(0.252 0.031 323.666);
+	--chart-3: oklch(0.28 0.022 103.357);
+	--chart-4: oklch(0.282 0.036 323.692);
+	--chart-5: oklch(0.277 0.021 189.51);
+}
+
+@theme inline {
+	--font-sans: 'Outfit', sans-serif;
+	--color-sidebar-ring: var(--sidebar-ring);
+	--color-sidebar-border: var(--sidebar-border);
+	--color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+	--color-sidebar-accent: var(--sidebar-accent);
+	--color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+	--color-sidebar-primary: var(--sidebar-primary);
+	--color-sidebar-foreground: var(--sidebar-foreground);
+	--color-sidebar: var(--sidebar);
+	--color-chart-5: var(--chart-5);
+	--color-chart-4: var(--chart-4);
+	--color-chart-3: var(--chart-3);
+	--color-chart-2: var(--chart-2);
+	--color-chart-1: var(--chart-1);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-card-foreground: var(--card-foreground);
+	--color-card: var(--card);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
+	html {
+		@apply font-sans;
+	}
+}
+
+body {
+	font-family: 'Outfit', sans-serif;
+}
+
+button {
+	cursor: pointer;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
