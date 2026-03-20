@@ -1,0 +1,21 @@
+services:
+ postgres:
+  image: postgres:15-alpine
+  container_name: wallet_postgres
+  environment:
+   POSTGRES_USER: walletuser
+   POSTGRES_PASSWORD: walletpass
+   POSTGRES_DB: wallet
+  ports:
+   - '5432:5432'
+  volumes:
+   - pgdata:/var/lib/postgresql/data
+  healthcheck:
+   test: ['CMD-SHELL', 'pg_isready -U walletuser']
+   interval: 10s
+   timeout: 5s
+   retries: 5
+
+volumes:
+ pgdata:
+
