@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { pool } from './db/connection.js';
+import { initializeDB, pool } from './db/connection.js';
 import { logger } from './utils/logger.js';
 
 const app = express();
@@ -14,6 +14,7 @@ const startServer = async () => {
 	try {
 		await pool.query('SELECT 1');
 		logger.info('Database connection successful');
+		await initializeDB();
 		app.listen(PORT, () => {
 			logger.info(`Server is running on port ${PORT}`);
 		});
