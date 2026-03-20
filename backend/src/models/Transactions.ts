@@ -38,7 +38,7 @@ export const transferFunds = async (
 ) => {
 	return await withTransaction(async (client) => {
 		const senderWallet = await client.query(
-			'SELECT w.wallet_id, u.name FROM wallets w JOIN users u ON w.user_id = u.user_id WHERE w.user_id = $1 FOR UPDATE SKIP LOCKED',
+			'SELECT w.wallet_id, u.name FROM wallets w JOIN users u ON w.user_id = u.user_id WHERE w.user_id = $1 FOR UPDATE',
 			[fromUserId],
 		);
 		const receiverWallet = await client.query(
