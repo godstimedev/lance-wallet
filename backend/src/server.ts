@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import { initializeDB, pool } from './db/connection.js';
+import walletRouter from './routes/wallet/index.js';
+import userRouter from './routes/user/index.js';
 import { logger } from './utils/logger.js';
 
 const app = express();
@@ -9,6 +11,8 @@ const PORT = process.env.PORT || 4000;
 
 app.use(cors());
 app.use(express.json());
+
+app.use('/api', userRouter, walletRouter);
 
 const startServer = async () => {
 	try {
